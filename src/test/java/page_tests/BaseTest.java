@@ -2,10 +2,7 @@ package page_tests;
 
 import base.AppConstants;
 import base.BasePage;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -78,6 +75,16 @@ public class BaseTest
                 } catch (MalformedURLException e) {
                     throw new RuntimeException(e);
                 }
+            }
+
+            else if(AppConstants.platform.equalsIgnoreCase("remote_git"))
+            {
+                co.addArguments("--headless"); //for GitHub actions
+                co.addArguments("--disable-gpu");
+                co.addArguments("--no-sandbox");
+                WebDriverManager.chromedriver().setup();
+                co.addArguments("--remote-allow-origins=*");
+                driver = new ChromeDriver(co);
             }
 
             else{
