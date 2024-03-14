@@ -104,8 +104,8 @@
                       <suiteXmlFiles>
                         <suiteXmlFile>${XmlFile}</suiteXmlFile>
                       </suiteXmlFiles>
-<!--                      <parallel>tests</parallel>-->
-<!--                      <threadCount>2</threadCount>-->
+                      <parallel>tests</parallel>
+                      <threadCount>2</threadCount>
                     </configuration>
         </plugin>
         <plugin>
