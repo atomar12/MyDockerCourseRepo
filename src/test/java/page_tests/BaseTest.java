@@ -120,7 +120,7 @@ public class BaseTest
                 fo.addArguments("--headless"); //for GitHub actions
                 fo.addArguments("--disable-gpu");
                 fo.addArguments("--no-sandbox");
-                fo.addArguments("--remote-allow-origins=*");
+              //  fo.addArguments("--remote-allow-origins=*"); not required for GitHub actions execution flow
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver(fo);
             }
