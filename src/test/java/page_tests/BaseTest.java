@@ -115,6 +115,16 @@ public class BaseTest
                 }
             }
 
+            else if(AppConstants.platform.equalsIgnoreCase("remote_git"))
+            {
+                fo.addArguments("--headless"); //for GitHub actions
+                fo.addArguments("--disable-gpu");
+                fo.addArguments("--no-sandbox");
+                fo.addArguments("--remote-allow-origins=*");
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver(fo);
+            }
+
 
             else {
                 logger.error("Platform not supported!!!");
